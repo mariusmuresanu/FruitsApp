@@ -21,6 +21,12 @@ namespace FruitsApp.Controllers
         }
 
         // GET: api/Fruits
+        /// <summary>
+        /// Get a list of all the fruits
+        /// </summary>
+        /// <param name="from">Filter fruits added from this date time (inclusive). Leave empty for no lower limit.</param>
+        /// <param name="to">Filter fruits add up to this date time (inclusive). Leave empty for no upper limit.</param>
+        /// <returns>A list of fruit objects.</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Fruit>>> GetFruits(
             [FromQuery]DateTimeOffset? from = null, 
