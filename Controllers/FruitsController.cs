@@ -51,7 +51,9 @@ namespace FruitsApp.Controllers
             //}
 
 
-            var resultList = await result.ToListAsync();
+            var resultList = await result
+                .OrderByDescending(f => f.MarketPrice)
+                .ToListAsync();
             return resultList;
         }
 
