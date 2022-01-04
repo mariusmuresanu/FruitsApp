@@ -22,9 +22,37 @@ namespace FruitsApp.Controllers
 
         // GET: api/Fruits
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Fruit>>> GetFruits()
+        public async Task<ActionResult<IEnumerable<Fruit>>> GetFruits(
+            [FromQuery]DateTimeOffset? from = null, 
+            [FromQuery] DateTimeOffset? to = null)
         {
-            return await _context.Fruits.ToListAsync();
+            IQueryable<Fruit> result = _context.Fruits;
+
+            if (from != null)
+            {
+                 result = result.Where(f => from <= f.DateAdded);
+            }
+            if (to != null)
+            {
+                result = result.Where(f => f.DateAdded <= to);
+            }
+
+            //if (from != null && to != null)
+            //{
+            //    result = result.Where(f => from <= f.DateAdded && f.DateAdded <= to);
+            //}
+            //else if (from != null)
+            //{
+            //    result = result.Where(f => from <= f.DateAdded);
+            //}
+            //else if (to != null)
+            //{
+            //    result = result.Where(f => f.DateAdded <= to);
+            //}
+
+
+            var resultList = await result.ToListAsync();
+            return resultList;
         }
 
         // GET: api/Fruits/5
