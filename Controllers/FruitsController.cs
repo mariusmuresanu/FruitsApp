@@ -109,6 +109,10 @@ namespace FruitsApp.Controllers
             return NoContent();
         }
 
+        //TODO make CRUD comments work with URL api/Fruits/{id}/Comments
+        //TODO make CRUD with another comments controller: api/comments/{Flower id}
+        //TODO write a validator for comments
+
         // POST: api/Fruits
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.

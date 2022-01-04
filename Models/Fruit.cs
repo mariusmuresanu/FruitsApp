@@ -21,5 +21,7 @@ namespace FruitsApp.Models
         public DateTimeOffset DateAdded { get; set; }
         public long MarketPrice { get; set; }
         public FruitUpkeepDifficulty FruitUpkeepDifficulty { get; set; }
+
+        public List<Comment> Comments { get; set; }
     }
 }

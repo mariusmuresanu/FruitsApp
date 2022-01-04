@@ -11,5 +11,6 @@ namespace FruitsApp.Models
         }
 
         public DbSet<Fruit> Fruits { get; set; }
+        public DbSet<Comment> Comments { get; set; }
     }
 }
